@@ -1,38 +1,48 @@
--- Insert Books
+-- Insert sample data into Books table
 INSERT INTO Books (TITLE, AUTHOR, GENRE, YEAR_PUBLISHED, AVAILABLE_COPIES) VALUES
-('The Structure of Scientific Revolutions', 'Thomas S. Kuhn', 'Philosophy of Science', 1962, 4),
-('A Theory of Justice', 'John Rawls', 'Political Philosophy', 1971, 3),
-('The Wealth of Nations', 'Adam Smith', 'Economics', 1776, 5),
-('Capital in the Twenty-First Century', 'Thomas Piketty', 'Economics', 2013, 2),
-('The Interpretation of Dreams', 'Sigmund Freud', 'Psychology', 1899, 1),
-('Being and Time', 'Martin Heidegger', 'Philosophy', 1927, 2),
-('Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 'History', 2011, 6),
-('The Selfish Gene', 'Richard Dawkins', 'Biology', 1976, 4),
-('Guns, Germs, and Steel', 'Jared Diamond', 'History', 1997, 3),
-('The Origins of Totalitarianism', 'Hannah Arendt', 'Political Science', 1951, 2);
+('The Great Gatsby', 'F. Scott Fitzgerald', 'Fiction', 1925, 3),
+('1984', 'George Orwell', 'Dystopian', 1949, 2),
+('The Hobbit', 'J.R.R. Tolkien', 'Fantasy', 1937, 4),
+('To Kill a Mockingbird', 'Harper Lee', 'Fiction', 1960, 1),
+('A Brief History of Time', 'Stephen Hawking', 'Science', 1988, 2),
+('Sapiens', 'Yuval Noah Harari', 'History', 2011, 3),
+('The Silent Patient', 'Alex Michaelides', 'Thriller', 2019, 1),
+('Brave New World', 'Aldous Huxley', 'Dystopian', 1932, 2),
+('The Catcher in the Rye', 'J.D. Salinger', 'Fiction', 1951, 3),
+('The Art of War', 'Sun Tzu', 'Philosophy', -500, 2);
 
--- Insert Members
+-- Insert sample data into Members table
 INSERT INTO Members (NAME, EMAIL, PHONE_NO, ADDRESS, MEMBERSHIP_DATE) VALUES
-('Noam Chomsky', 'chomsky@univ.edu', '1112223333', 'MIT, Cambridge, MA', '2023-01-01'),
-('Cornel West', 'west@princeton.edu', '2223334444', 'Princeton, NJ', '2023-02-01'),
-('Amartya Sen', 'sen@harvard.edu', '3334445555', 'Harvard University, MA', '2023-03-01'),
-('Angela Davis', 'davis@ucsc.edu', '4445556666', 'UCSC, CA', '2023-04-01'),
-('Judith Butler', 'butler@berkeley.edu', '5556667777', 'UC Berkeley, CA', '2023-05-01'),
-('Martha Nussbaum', 'nussbaum@uchicago.edu', '6667778888', 'UChicago, IL', '2023-06-01'),
-('Edward Said', 'said@columbia.edu', '7778889999', 'Columbia University, NY', '2023-07-01'),
-('bell hooks', 'hooks@berea.edu', '8889990000', 'Berea College, KY', '2023-08-01'),
-('Michel Foucault', 'foucault@sorbonne.fr', '9990001111', 'Sorbonne, Paris', '2023-09-01'),
-('Karl Popper', 'popper@lse.ac.uk', '0001112222', 'LSE, London', '2023-10-01');
+('Alice Johnson', 'alice.johnson@example.com', '1234567890', '123 Maple St, NY', '2024-05-01'),
+('Bob Smith', 'bob.smith@example.com', '2345678901', '456 Oak St, CA', '2023-11-12'),
+('Charlie Brown', 'charlie.brown@example.com', '3456789012', '789 Pine St, TX', '2024-01-20'),
+('Diana Prince', 'diana.prince@example.com', '4567890123', '321 Elm St, WA', '2023-09-05'),
+('Ethan Hunt', 'ethan.hunt@example.com', '5678901234', '654 Cedar St, FL', '2023-07-10'),
+('Fiona Gallagher', 'fiona.g@example.com', '6789012345', '987 Birch St, IL', '2024-03-15'),
+('George Clooney', 'george.c@example.com', '7890123456', '159 Walnut St, OH', '2023-10-01'),
+('Helen Parr', 'helen.p@example.com', '8901234567', '753 Chestnut St, MA', '2024-02-08'),
+('Isaac Newton', 'isaac.n@example.com', '9012345678', '852 Aspen St, CO', '2023-12-22'),
+('Jane Eyre', 'jane.eyre@example.com', '0123456789', '963 Willow St, AZ', '2024-04-01');
 
--- Insert Borrowing Records
+-- Insert sample data into BorrowingRecords table
+-- NOTE: Ensure Books and Members data are inserted first due to FK constraints
 INSERT INTO BorrowingRecords (MEMBER_ID, BOOK_ID, BORROW_DATE, RETURN_DATE) VALUES
-(1, 1, '2023-01-15', '2023-01-30'),
-(2, 2, '2023-02-10', '2023-02-28'),
-(3, 3, '2023-03-20', NULL),
-(4, 4, '2023-04-05', '2023-04-20'),
-(5, 5, '2023-05-10', NULL),
-(6, 6, '2023-06-01', '2023-06-15'),
-(7, 7, '2023-07-03', '2023-07-25'),
-(8, 8, '2023-08-12', NULL),
-(9, 9, '2023-09-09', NULL),
-(10, 10, '2023-10-15', NULL);
+(1, 1, '2025-05-01', NULL),
+(2, 4, '2025-04-15', NULL),
+(3, 2, '2025-03-20', '2025-04-01'),
+(1, 5, '2025-03-01', '2025-03-15'),
+(4, 3, '2025-02-10', NULL),
+(5, 10, '2025-01-01', NULL),
+(6, 9, '2025-04-01', '2025-04-20'),
+(1, 6, '2025-02-15', NULL),
+(1, 7, '2025-03-10', NULL),
+(3, 8, '2025-01-20', NULL),
+(1, 1, '2024-01-10', NULL),
+(2, 1, '2024-02-15', NULL),
+(3, 1, '2024-03-20', NULL),
+(4, 1, '2024-04-05', NULL),
+(5, 1, '2024-04-20', NULL),
+(6, 1, '2024-05-01', NULL),
+(7, 1, '2024-05-10', NULL),
+(8, 1, '2024-05-15', NULL),
+(10, 1, '2024-05-25', NULL);

@@ -1,8 +1,11 @@
 -- a) Total books borrowed per month
-SELECT DATE_TRUNC('month', BORROW_DATE) AS Month, COUNT(*) AS Total_Borrowed
+SELECT 
+  DATE_FORMAT(BORROW_DATE, '%Y-%m') AS Month,
+  COUNT(*) AS Total_Borrowed
 FROM BorrowingRecords
 GROUP BY Month
-ORDER BY Month;
+ORDER BY Month
+LIMIT 100;
 
 -- b) Top 3 most active members
 SELECT m.NAME, COUNT(*) AS Books_Borrowed
